@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+title: Home
+description: "Big Mike's Market & More serves made-to-order sandwiches, deli classics, and everyday favorites."
+permalink: /index.html
+---
+{% from "_components/index.njk" import button %}
+
+<section class="relative overflow-hidden bg-black">
+  <img
+    src="/assets/images/big-mikes-hero.png"
+    alt=""
+    class="absolute inset-0 h-full w-full object-cover object-center opacity-55"
+    loading="eager"
+    eleventy:ignore
+  >
+  <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/65 via-zinc-950/45 to-zinc-950"></div>
+  <div class="relative container flex min-h-[30rem] items-end pb-12 pt-24 md:min-h-[36rem] md:pb-16 lg:min-h-[40rem]">
+    <div class="max-w-3xl">
+      <p class="mb-3 text-sm font-bold uppercase tracking-wider text-primary-300">Your neighborhood deli</p>
+      <h1 class="text-balance text-zinc-50 drop-shadow-lg">Big Mike's Market &amp; More</h1>
+      <p class="mt-5 max-w-xl text-xl font-medium text-zinc-100 text-pretty drop-shadow">
+        Made-to-order sandwiches, deli classics, and everyday favorites—served fresh, stacked high, and made for Syracuse.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        {{ button({
+          text: "View Menu",
+          url: "/menu/",
+          variant: "primary",
+          size: "lg"
+        }) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-black">
+  <div class="container">
+    <div class="mx-auto mb-20 max-w-4xl text-center">
+      <p class="mb-3 text-base font-extrabold uppercase tracking-wider text-primary-300">Fresh, fast, and local</p>
+      <h2 class="text-5xl font-black uppercase leading-tight text-zinc-50 md:text-6xl lg:text-7xl">Come Hungry</h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg font-semibold text-zinc-200 md:text-xl">
+        From breakfast sandwiches to halal platters and toasted favorites, Big Mike's is serving generous portions all morning long.
+      </p>
+    </div>
+
+  
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Breakfast</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Start Here</h3>
+        <p class="text-zinc-200">Egg sandwiches, platters, bagels, and toasted favorites made to order.</p>
+        <a href="/menu/" class="mt-5 block text-2xl font-extrabold text-amber-300 no-underline hover:text-amber-200">See the menu</a>
+      </div>
+
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Hours</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Visit Big Mike's Market &amp; More</h3>
+        <p class="text-zinc-200">Start your day with breakfast, toasted sandwiches, and more.</p>
+        <p class="mt-5 text-lg font-extrabold uppercase tracking-wide text-red-300">7:00AM–2:00PM</p>
+      </div>
+
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Location</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Find Us</h3>
+        <p class="text-zinc-200">Stop in and see us on James Street.</p>
+        <address class="mt-5 text-lg font-extrabold not-italic text-zinc-50">3000 James Street<br>Syracuse, NY 13206</address>
+      </div>
+
+      <div class="card p-6">
+        <p class="mb-3 text-sm font-bold uppercase tracking-wide text-primary-300">Halal Food</p>
+        <h3 class="mb-2 text-xl font-bold text-zinc-50">Big Flavor</h3>
+        <p class="text-zinc-200">Chicken and lamb over rice, gyros, fresh toppings, and house sauces.</p>
+        <a href="/menu/" class="mt-5 block text-2xl font-extrabold text-amber-300 no-underline hover:text-amber-200">Explore favorites</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-32 bg-black">
+  <div class="container">
+    <div class="overflow-hidden rounded-xl border-2 border-red-800/70 bg-zinc-900/80 shadow-lg shadow-zinc-950/40">
+      <div class="px-6 py-5 md:px-8">
+        <p class="text-sm font-bold uppercase tracking-wider text-primary-300">Find Us</p>
+        <h2 class="mt-2 text-3xl font-extrabold text-zinc-50">3000 James Street, Syracuse</h2>
+      </div>
+      <div class="aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-[21/9]">
+        <iframe
+          src="https://www.google.com/maps?q=3000+James+Street,+Syracuse,+NY+13206&amp;output=embed"
+          title="Map showing Big Mike's Market &amp; More at 3000 James Street in Syracuse, New York"
+          class="h-full w-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

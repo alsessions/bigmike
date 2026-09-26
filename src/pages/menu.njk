@@ -1,0 +1,150 @@
+---
+layout: layouts/base.njk
+title: Menu
+description: "Breakfast, halal platters, signature sandwiches, cold cuts, omelettes, burgers, and sides at Big Mike's Market & More."
+---
+{% set menuGroups = [
+{ title: "Breakfast & Halal", id: "breakfast-halal", columns: 2, sections: [
+  { title: "Breakfast", columns: ["Hero", "Bagel/Roll"], items: [
+    { name: "Egg Only", prices: ["$6.49", "$3.49"] },
+    { name: "Egg & Cheese", prices: ["$4.49", "$3.49"] },
+    { name: "Grill Cheese", prices: ["$6.49", "$3.49"] },
+    { name: "BLT", prices: ["$9.49", "$6.49"] },
+    { name: "Ham, Egg & Cheese", prices: ["$9.49", "$6.49"] },
+    { name: "Bacon, Egg & Cheese", prices: ["$9.49", "$6.99"] },
+    { name: "Beef Sausage, Egg & Cheese", prices: ["$9.49", "$6.99"] },
+    { name: "BLT, Egg & Cheese", prices: ["$10.49", "$7.49"] },
+    { name: "Turkey Sausage, Egg & Cheese", prices: ["$9.99", "$6.99"] },
+    { name: "Egg White, Turkey Bacon, Swiss, Spinach", prices: ["$9.99", "$6.99"] }
+  ] },
+  { title: "Breakfast Platters", items: [
+    { name: "Two Eggs & Home Fries", prices: ["$7.99"] },
+    { name: "Bacon or Sausage, Two Eggs & Home Fries", prices: ["$9.99"] },
+    { name: "Turkey Ham, Two Eggs & Home Fries", prices: ["$9.99"] },
+    { name: "Turkey Bacon & Sausage, Two Eggs & Home Fries", prices: ["$10.99"] },
+    { name: "French Toast, Two Eggs & Sausage or Bacon", prices: ["$9.99"] }
+  ] },
+  { title: "Omelettes", items: [
+    { name: "Meat Omelette", description: "Turkey ham, sausage or bacon, onions & pepper", prices: ["$2.99"] },
+    { name: "Cheese Omelette", description: "2 types of cheese, onions & pepper", prices: ["$2.99"] },
+    { name: "Western Omelette", description: "Ham, onion & pepper", prices: ["$2.99"] },
+    { name: "Vegetable Omelette", description: "Tomato, onion, pepper, mushrooms & broccoli", prices: ["$2.99"] },
+    { name: "Greek Omelette", description: "Onion, cherry tomato, spinach & feta cheese", prices: ["$2.99"] },
+    { name: "Steak Omelette", prices: ["$2.99"] }
+  ] },
+  { title: "Toasted", columns: ["Hero", "Bagel/Roll"], items: [
+    { name: "Butter", prices: ["$2.25", "$1.25"] },
+    { name: "Cream Cheese", prices: ["$2.25", "$1.49"] },
+    { name: "Cream Cheese & Jelly", prices: ["$2.25", "$1.75"] },
+    { name: "Bacon, Cream Cheese", prices: ["$3.75", "$2.49"] },
+    { name: "Bacon, Cream Cheese & Jelly", prices: ["$3.99", "$3.75"] }
+  ] },
+  { title: "Halal Food", items: [
+    { name: "Chicken Over Rice", description: "Lettuce & tomato", prices: ["$13.99"] },
+    { name: "Lamb Over Rice", description: "Lettuce & tomato", prices: ["$14.99"] },
+    { name: "Mix Over Rice", description: "Lettuce & tomato", prices: ["$15.99"] },
+    { name: "Chicken or Lamb Gyro", description: "Lettuce & tomato", prices: ["$10.99"] }
+  ] }
+] },
+{ title: "Sandwiches", id: "sandwiches", columns: 2, sections: [
+  { title: "Signature Sandwiches", columns: ["Hero", "Roll"], items: [
+    { name: "Avocado BLT", description: "Avocado, crispy bacon, lettuce, tomato & mayo", prices: ["$9.99", "$6.99"] },
+    { name: "Philly Cheesesteak", description: "Beef steak, onion & pepper, American cheese", prices: ["$10.99", "$7.99"] },
+    { name: "Chopped Cheese", description: "Ground beef, onion & pepper, American cheese", prices: ["$9.99", "$6.99"] },
+    { name: "Roast Beef Provolone", description: "Roast beef, provolone cheese, lettuce, tomato, mayo, oil & vinegar", prices: ["$10.99", "$7.99"] },
+    { name: "Chicken Parm", description: "Chicken cutlet, marinara sauce, mozzarella cheese & Parmesan grated cheese", prices: ["$9.99", "$6.99"] },
+    { name: "Turkey Club", description: "Ovengold turkey, bacon, romaine lettuce, tomato & mayo", prices: ["$9.99", "$6.99"] },
+    { name: "Tuna Melt", description: "Classic tuna salad, cheddar cheese, lettuce & tomato", prices: ["$11.99", "$8.99"] }
+  ] },
+  { title: "Cold Cut Sandwiches", columns: ["Small", "Large/Wrap", "Pound"], items: [
+    { name: "Regular Turkey", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Honey Turkey", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Buffalo Chicken", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Turkey Ham", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Roast Beef", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Pastrami", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Tuna Sandwich", prices: ["$7.99", "$9.99", "$11.99"] },
+    { name: "Veggie Sandwich", prices: ["$5.99", "$7.99", "-"] },
+    { name: "Mix Sub", prices: ["$9.99", "$11.99", "-"] }
+  ] }
+] },
+{ title: "More Favorites", id: "more-favorites", columns: 2, sections: [
+  { title: "Burgers", columns: ["Combo", "Regular"], note: "Combo includes fries + drink", items: [
+    { name: "Cheese Burger", description: "Cheese, lettuce, tomato & onion", prices: ["$11.99", "$9.49"] },
+    { name: "Mush Burger", description: "Mushrooms & melted Swiss cheese", prices: ["-", "$9.49"] },
+    { name: "Bacon Cheese Burger", description: "Beef or turkey bacon & cheese", prices: ["-", "$9.49"] },
+    { name: "Grill Burger", description: "Double meat, 2 types of cheese, fried onion & pickles", prices: ["-", "$13.99"] }
+  ] },
+  { title: "Fried Chicken", columns: ["Small", "Med"], items: [
+    { name: "Fresh Fries", prices: ["$7.99", "$5.99"] },
+    { name: "Curly Fries", prices: ["$8.99", "$6.99"] },
+    { name: "Onion Rings", prices: ["$8.99", "$8.99"] },
+    { name: "Seasoned Fries", prices: ["$8.99", "$6.99"] },
+    { name: "Sweet Potato Fries", prices: ["$8.99", "$6.99"] },
+    { name: "6 PCS Mozzarella Sticks", prices: ["$6.99", "-"] },
+    { name: "8 PCS Mozzarella Sticks", prices: ["$7.99", "-"] }
+  ] }
+] }
+] %}
+
+{% macro menuItems(items, columns) %}
+  {% if columns %}
+    <div class="mb-3 grid gap-2 text-right text-[0.7rem] font-bold uppercase leading-tight tracking-wide text-[#ffd414] {% if columns.length == 3 %}grid-cols-[minmax(0,1fr)_3.5rem_4.5rem_3.5rem]{% else %}grid-cols-[minmax(0,1fr)_4.5rem_4.5rem]{% endif %}">
+      <span></span>
+      {% for column in columns %}<span>{{ column }}</span>{% endfor %}
+    </div>
+  {% endif %}
+  <ul class="space-y-4">
+    {% for item in items %}
+      <li class="grid break-inside-avoid gap-x-2 border-b border-zinc-700/80 pb-4 last:border-0 last:pb-0 {% if columns and columns.length == 3 %}grid-cols-[minmax(0,1fr)_3.5rem_4.5rem_3.5rem]{% elif columns %}grid-cols-[minmax(0,1fr)_4.5rem_4.5rem]{% else %}grid-cols-[minmax(0,1fr)_auto]{% endif %}">
+        <div class="min-w-0">
+          <span class="font-extrabold uppercase leading-snug tracking-wide text-zinc-50">{{ item.name }}</span>
+          {% if item.description %}<p class="mt-1 text-sm font-normal leading-snug text-zinc-300">{{ item.description }}</p>{% endif %}
+        </div>
+        {% for price in item.prices %}<span class="ml-1 w-fit self-start justify-self-end rounded-md bg-[#ffd414] px-1.5 py-1 text-center text-sm font-bold text-black shadow-sm shadow-black/20">{{ price }}</span>{% endfor %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro menuCard(section) %}
+  <section id="{{ section.title | slugify }}" class="scroll-mt-52 rounded-xl bg-black p-5 shadow-lg shadow-black/30 md:p-6">
+    <div class="menu-brush -mx-5 mb-6 bg-[#ffd414] px-8 py-4 md:-mx-6 shadow-md shadow-black/35 md:px-10">
+      <h3 class="text-2xl font-bold uppercase tracking-wide text-black md:text-3xl">{{ section.title }}</h3>
+      {% if section.note %}<p class="mt-2 inline-flex bg-black px-3 py-1 font-bold uppercase tracking-wide text-amber-300">{{ section.note }}</p>{% endif %}
+    </div>
+    {{ menuItems(section.items, section.columns) }}
+  </section>
+{% endmacro %}
+
+<article class="bg-black">
+  <header class="relative overflow-hidden border-b border-red-800/50">
+    <img src="/assets/images/big-mikes-hero.png" alt="" class="absolute inset-0 h-full w-full object-cover object-[center_45%] opacity-40" loading="eager" eleventy:ignore>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/35"></div>
+    <div class="container relative flex min-h-[30rem] max-w-7xl flex-col justify-center py-16 md:min-h-[38rem] md:py-20 lg:min-h-[44rem]">
+      <p class="mb-3 text-sm font-bold uppercase tracking-wider text-amber-300">Big Mike's Market &amp; More</p>
+      <h1 class="max-w-4xl text-balance text-zinc-50">Menu</h1>
+      <p class="mt-5 max-w-2xl text-lg font-medium text-zinc-100 md:text-xl">Breakfast, halal platters, signature sandwiches, cold cuts, omelettes, burgers, and sides.</p>
+    </div>
+  </header>
+  <nav class="sticky top-16 z-40 border-b border-amber-500/40 bg-black/95 shadow-lg shadow-black/30 backdrop-blur-sm md:top-20" aria-label="Menu sections">
+    <div class="container flex max-w-7xl gap-3 overflow-x-auto py-3 md:flex-wrap md:justify-center md:overflow-visible">
+      {% for menuGroup in menuGroups %}
+        {% for section in menuGroup.sections %}
+          <a href="#{{ section.title | slugify }}" class="whitespace-nowrap rounded-full border-2 border-amber-500/60 bg-black/80 px-4 py-2 text-sm font-bold uppercase tracking-wide text-amber-300 no-underline transition-colors hover:border-amber-300 hover:bg-black hover:text-amber-200">{{ section.title }}</a>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </nav>
+  <div class="container max-w-7xl py-12 md:py-16">
+    <div class="space-y-16 md:space-y-20">
+      {% for menuGroup in menuGroups %}
+        <div>
+          <div class="grid items-start gap-6 {% if menuGroup.columns == 2 %}lg:grid-cols-2{% elif menuGroup.columns == 3 %}lg:grid-cols-2 xl:grid-cols-3{% endif %}">
+            {% for section in menuGroup.sections %}{{ menuCard(section) }}{% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</article>

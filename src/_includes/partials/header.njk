@@ -1,0 +1,60 @@
+{# Site Header with Navigation #}
+<header class="sticky top-0 z-50 border-b border-[#ffd414] bg-black/95 text-amber-300 shadow-lg shadow-black/25 backdrop-blur-sm" x-data="{ mobileMenuOpen: false }">
+  <div class="w-full px-4 sm:px-6 lg:px-10 xl:px-12">
+    <nav class="flex items-center justify-between h-16 md:h-20">
+      {# Brand #}
+      <a href="/" class="flex flex-1 items-center gap-2 text-sm font-black sm:text-xl uppercase tracking-wide text-amber-300 no-underline hover:text-amber-200">
+        
+        <span>{{ metadata.title | default("Big Mike's Market & More") }}</span>
+      </a>
+
+      {# Right side: Desktop navigation + Mobile menu #}
+      <div class="flex items-center justify-end gap-3 flex-1">
+        <div class="hidden items-center gap-8 md:flex">
+          {% for item in header.navigation %}
+            <a
+              href="{{ item.url }}"
+              class="nav-link rounded-lg px-3 py-2 text-base font-bold uppercase tracking-wide text-amber-300 no-underline drop-shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-amber-300 hover:text-black hover:shadow-lg hover:shadow-amber-300/25 active:translate-y-0 active:scale-95 active:bg-amber-200{% if page.url == item.url %} bg-amber-300 text-black shadow-md shadow-amber-300/20{% endif %}"
+              {% if page.url == item.url %}aria-current="page"{% endif %}
+            >
+              {{ item.label }}
+            </a>
+          {% endfor %}
+        </div>
+
+        {# Mobile menu button #}
+        <button
+          type="button"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          class="md:hidden p-2 text-amber-300 hover:text-amber-200"
+          :aria-expanded="mobileMenuOpen"
+          aria-label="Toggle navigation menu"
+        >
+          <span x-show="!mobileMenuOpen">{% phosphor "list", "bold", { size: 24 } %}</span>
+          <span x-show="mobileMenuOpen" x-cloak>{% phosphor "x", "bold", { size: 24 } %}</span>
+        </button>
+      </div>
+    </nav>
+
+    {# Mobile Navigation #}
+    <div
+      x-show="mobileMenuOpen"
+      x-cloak
+      x-collapse.duration.150ms
+      class="border-t border-amber-500/40 md:hidden"
+    >
+      <div class="py-4 space-y-2">
+        {% for item in header.navigation %}
+          <a
+            href="{{ item.url }}"
+            @click.prevent="mobileMenuOpen = false{% if page.url != item.url %}; setTimeout(() => window.location.assign($el.href), 150){% endif %}"
+            class="block rounded-lg px-4 py-3 text-lg font-bold uppercase tracking-wide text-amber-300 no-underline transition duration-200 hover:bg-amber-300 hover:text-black hover:shadow-lg hover:shadow-amber-300/20 active:scale-95 active:bg-amber-200{% if page.url == item.url %} bg-amber-300 text-black shadow-md shadow-amber-300/20{% endif %}"
+            {% if page.url == item.url %}aria-current="page"{% endif %}
+          >
+            {{ item.label }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</header>
